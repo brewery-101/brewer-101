@@ -14,20 +14,62 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col">
+		<div class="col-12">
 			<h1>Thomas O'Malley user story and persona</h1>
 		</div>
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h2>User Story</h2>
+		</div>
+		<div class="col">
+			<p>As an Admin users I would like to be able to view reported and flagged posts/reviews, investigate users and see
+				all posts they have made, and tools for removing the posts and banning accounts for the site to be friendlier for my friends and people I like</p>
+		</div>
+	</div>
+</div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-12">
 			<h2>Persona</h2>
 		</div>
+		<div class="col-12">
+			<h3>Name: Thomas O'Malley</h3>
+		</div>
+		<div class="col-12">
+			<h3>Technology use:</h3>
+		</div>
 		<div class="col">
-			<h3></h3>
+			<ul>
+				<li>A dell XPS 13 running windows 11</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<h3>Proficiency:</h3>
+		</div>
+		<div class="col-6">
+			<p>Thomas works as an IT tech for a small paper company and has plenty of user level proficiency: navigate his computer, answer emails, manage program, and he possesses some higher level tech proficiency: packet install, firewall maintenance, maintaining a server. it terms of social media saviness, he helps to moderate the ABQ subreddit and his friends discord server in his spare time, so he has some skill working with admin tools and content moderation.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<h3>Attitudes and needs</h3>
+		</div>
+		<div class="col-6">
+			<ul>
+				<li>Thomas likes to feel like he's more than just a part of a community, he likes to help in keeping it clean and non toxic</li>
+				<li>Thomas doesn't drink much, but he does drink often, and loves the brewery scene in albuquerque</li>
+				<li>Thomas knows several of the brewery owners in town, which is how he was told about brew crew and ultimately asked to help moderate</li>
+				<li>Thomas doesn't always have the best intentions. he feels the need to be in charge and will sometimes break rules when he wants something</li>
+				<li>Thomas uses the website as a way to hit on women, and so far, he has gone unnoticed for some of his creepier actions</li>
+				<Li>Eventually Thomas will abuse his power and ban someone who shouldn't have been banned</Li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -35,15 +77,24 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col">
-
+		<div class="col-8">
+			<h2>Interaction flow</h2>
+		<ul>
+			<li>Thomas navigates to the homepage and logs in with the log in input fields.</li>
+			<li>The javascript receives the login field input, queries the database for correct encrypted code, and starts a handshake with his computer, passing a session cookie, and redirects to his user page</li>
+			<li>Thomas sees that his admin icon has 12 notifications and so he clicks on it to open the admin panel</li>
+			<li>the website checks user keys to make sure thomas has admin access and then redirects him to the admin panel</li>
+			<li>Thomas receives a list of reported issues and reads through the reporter comment form and tagged posts/reviews in question. He sees a community guideline violation (harassment) and opens the report</li>
+			<li>the website receives the request to look at the full report and suite of tools, logs thomas' access to the ticket and redirects him to the ticket resolution page which lists the user details, reporter details, and the post/review in question with additional tools.</li>
+			<li>Thomas sees that the post content includes aggressive language and threats of violence, and clicks the BAN HAMMER button on the form.</li>
+			<li>The site registers the click and sends a confirmation prompt with rational text box</li>
+			<li>Thomas types out the reason for a banning (threats of violence) and presses confirm</li>
+			<li>the site amends the key for the post with the rational text box value and thomas' user key, sets the user's status key to Banned which runs a script to set all of their posts and content to hidden, and locks the user out of their account so that it redirects them to a complaint form, and lastly, it sends off a response message to the reporter user with the details from the rational text box and closes the report ticket. this redirects thomas back to the admin panel.</li>
+		</ul>
 		</div>
 	</div>
 </div>
 
-
-
-<p></p>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
