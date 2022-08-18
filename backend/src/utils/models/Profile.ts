@@ -3,7 +3,7 @@ import { sql } from '../database.utils'
 export interface Profile {
   profileId: string | null,
   profileActivationToken: string,
-  profileAvatarUrl: string,
+  profileAvatarUrl: string|null,
   profileEmail: string,
   profileHash: string,
   profileName: string
