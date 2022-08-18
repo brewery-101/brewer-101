@@ -49,6 +49,7 @@ try {
 
   return response.json(status)
 }catch (error: any) {
+  console.log(error)
   const status: Status = {
     status: 500,
     message: error.message,

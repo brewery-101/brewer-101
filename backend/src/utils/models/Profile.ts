@@ -11,7 +11,11 @@ export interface Profile {
 
 export async function insertProfile (profile: Profile) :Promise<string>{
   const {profileActivationToken, profileAvatarUrl, profileEmail, profileHash, profileName} = profile
-  await sql `INSERT INTO profile("profileId", "profileActivationToken", "profileAvatarUrl", "profileEmail", "profileHash", "profileName") 
+  await sql `INSERT INTO "profile"("profileId", "profileActivationToken", "profileAvatarUrl", "profileEmail", "profileHash", "profileName") 
   VALUES (gen_random_uuid(), ${profileActivationToken}, ${profileAvatarUrl}, ${profileEmail}, ${profileHash}, ${profileName})`
   return 'Profile successfully created'
+}
+
+export async function selectProfileByProfileActivationToken (profileActivationToken: string): Promise<Profile|null> {
+  
 }
