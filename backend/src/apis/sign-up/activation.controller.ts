@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { Profile } from '../../utils/models/Profile'
+import { Profile, selectProfileByProfileActivationToken } from '../../utils/models/Profile'
 import { Status } from '../../utils/interfaces/Status'
 
 
