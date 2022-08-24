@@ -6,7 +6,6 @@ import { setActivationToken, setHash } from '../../utils/auth.utils'
 import { insertProfile, Profile } from '../../utils/models/Profile'
 import { Status } from '../../utils/interfaces/Status'
 
-
 export async function signUpController (request: Request, response: Response): Promise<Response | undefined>{
 try {
   const mailgun: Mailgun = new Mailgun(formData)
@@ -55,6 +54,7 @@ try {
     message: error.message,
     data: null
   }
+
   return response.json(status)
 }
 }
