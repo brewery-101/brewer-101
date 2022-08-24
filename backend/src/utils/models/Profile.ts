@@ -46,12 +46,11 @@ WHERE "profileId" = ${profileId}`
 }
 
 export async function selectPartialProfileByProfileId (profileId: string) : Promise<PartialProfile|null> {
-  const result = await sql<Profile[]> `SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" from profile WHERE "profileId" = ${profileId}`
+  const result = await sql<Profile[]> `
+  SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" from profile 
+  WHERE "profileId" = ${profileId}`
   return result?.length === 1 ? result[0] : null
 }
-
-
-
 
 /**
  * Helper function that interacts with postgres to select a profile object by its primary key.

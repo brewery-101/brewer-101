@@ -15,8 +15,8 @@ try {
   const profileHash = await setHash(profilePassword)
   const profileActivationToken = setActivationToken()
   const profileAvatarUrl = null
-
-  const basePath: string = `${request.protocol}://${request.hostname}/${request.originalUrl}/activation/${profileActivationToken}`
+console.log(request.originalUrl)
+  const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
   const message = `<h2>Welcome to brewer 101</h2>
   <p>In order to start using the site you must confirm your account.</p>
   <p><a href="${basePath}">${basePath}</a></p>`
