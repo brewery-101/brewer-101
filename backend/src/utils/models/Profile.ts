@@ -11,11 +11,18 @@ export interface Profile {
 
 export interface PartialProfile{
   profileId: string|null,
-  profileActivationToken: string|null
   profileAvatarUrl: string|null,
   profileEmail: string,
   profileName: string,
 }
+
+export async function selectProfileByProfileId (profileId: string): Promise<Profile|null>{
+  const searchedProfile = await sql<Profile[]> `SELECT "profileId", "profileActivationToken", "profileAvatarUrl", "profileEmail", "profileHash", "profileName" 
+  FROM "profile"
+  WHERE "profileId" = ${profileId}`
+  return searchedProfile?.length === 1 ? searchedProfile[0] : null
+}
+
 
 
 /**
@@ -36,11 +43,11 @@ export async function selectProfileByProfileActivationToken (profileActivationTo
   WHERE "profileActivationToken" = ${profileActivationToken}`
   return result?.length === 1 ? result[0] : null
 }
-export async function updateProfile (partialProfile: PartialProfile): Promise<string>{
-  const {profileActivationToken, profileAvatarUrl, profileEmail, profileName, profileId } = partialProfile
+export async function updateProfile (profile: Profile): Promise<string>{
+  const {profileActivationToken, profileAvatarUrl, profileEmail, profileHash, profileName, profileId } = profile
   await sql `
 UPDATE "profile"
-SET "profileActivationToken" = ${profileActivationToken}, "profileAvatarUrl" = ${profileAvatarUrl}, "profileEmail" = ${profileEmail}, "profileName" = ${profileName}
+SET "profileActivationToken" = ${profileActivationToken}, "profileAvatarUrl" = ${profileAvatarUrl}, "profileEmail" = ${profileEmail}, "profileHash" = ${profileHash}, "profileName" = ${profileName}
 WHERE "profileId" = ${profileId}`
   return 'Profile updated successfully'
 }

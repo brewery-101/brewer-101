@@ -7,6 +7,7 @@ import { createClient } from 'redis'
 import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
 import {signInRoute} from './apis/sign-in/sign-in.route';
+import {ProfileRoute} from './apis/profile/profile.route';
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
 const RedisStore = RedisConnect(session)
@@ -49,6 +50,7 @@ export class App {
     this.app.use('/apis', indexRoute)
     this.app.use('/apis/signup', signupRoute)
     this.app.use('/apis/sign-in', signInRoute)
+    this.app.use('/apis/profile', ProfileRoute)
 
   }
 
