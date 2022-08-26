@@ -1,11 +1,6 @@
 import { Schema } from 'express-validator'
 
 export const checkInValidator: Schema = {
-  checkInId: {
-    isUUID: {
-      errorMessage: 'please provide a valid TicketProjectId'
-    }
-  },
   checkInProfileId: {
     isUUID: {
       errorMessage: 'please provide a valid TicketProfileId'
@@ -19,15 +14,15 @@ export const checkInValidator: Schema = {
     trim: true,
     escape: true
   },
-  checkInEndTime: {
-    isDate: true,
-    errorMessage: "ticket due date is malformed",
-    optional: {
-      options: {
-        nullable: true
-      }
-    },
-  },
+  // checkInEndTime: {
+  //   isDate: true,
+  //   errorMessage: "ticket due date is malformed",
+  //   optional: {
+  //     options: {
+  //       nullable: true
+  //     }
+  //   },
+  // },
   checkInIsActive: {
     trim: true,
     escape: true,

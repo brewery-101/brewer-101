@@ -15,7 +15,7 @@ export async function insertCheckIn (checkIn: CheckIn):Promise<string>{
   const {checkInProfileId, checkInBreweryId, checkInDateTime, checkInEndTime, checkInIsActive, checkInWhatChaDrinkin} = checkIn
   await sql `
   INSERT INTO "checkIn" ("checkInId", "checkInProfileId", "checkInBreweryId", "checkInDateTime", "checkInEndTime", "checkInIsActive", "checkInWhatChaDrinkin")
-  VALUES (gen_random_uuid(), ${checkInProfileId}, ${checkInBreweryId}, ${checkInDateTime}, ${checkInDateTime}, ${checkInEndTime}, ${checkInIsActive}, ${checkInWhatChaDrinkin}`
+  VALUES (gen_random_uuid(), ${checkInProfileId}, ${checkInBreweryId}, ${checkInDateTime}, ${checkInEndTime}, ${checkInIsActive}, ${checkInWhatChaDrinkin})`
   return "Check In Verified!"
 }
 
