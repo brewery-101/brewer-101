@@ -22,21 +22,22 @@ export interface Brewery {
 
 export async function insertBrewery (brewery: Brewery) :Promise<string>{
   const {breweryAddress, breweryCity, breweryLat, breweryLng, breweryName, breweryPictureUrl, breweryState, breweryWebsite, breweryZipCode} = brewery
-  await sql `INSERT INTO "brewery"("breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng" "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipcode" )
-  VALUES (gen_random_uuid(), ${breweryAddress}, ${breweryCity}, ${breweryLat}, ${breweryLng}, ${breweryName}, ${breweryPictureUrl}, ${breweryState}, $breweryWebsite}, ${breweryZipCode})`
+  await sql `INSERT INTO "brewery"("breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng", "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipCode" )
+  VALUES (gen_random_uuid(), ${breweryAddress}, ${breweryCity}, ${breweryLat}, ${breweryLng}, ${breweryName}, ${breweryPictureUrl}, ${breweryState}, ${breweryWebsite}, ${breweryZipCode})`
   return 'Brewery successfully created'
 }
 
 export async function updateBrewery (brewery: Brewery): Promise<string>{
-  const {breweryId, breweryAddress, breweryCity, breweryLat, breweryLng, breweryName, breweryPictureUrl, breweryState, breweryWebsite, breweryZipcode} =brewery
+  const {breweryId, breweryAddress, breweryCity, breweryLat, breweryLng, breweryName, breweryPictureUrl, breweryState, breweryWebsite, breweryZipCode} =brewery
   await sql `
   UPDATE "brewery"
-  SET "breweryId" = ${breweryId}, "breweryAddress" = ${breweryAddress}, "breweryCity" = ${breweryCity}, "breweryLat" = ${breweryLat}, "breweryLng" = ${breweryLng}, "breweryName" = ${breweryName}, "breweryPictureUrl" = ${breweryPictureUrl}, "breweryState" = ${breweryState}, "breweryWebsite" = ${breweryWebsite}, "breweryZipcode" = ${breweryZipcode}
+  SET "breweryId" = ${breweryId}, "breweryAddress" = ${breweryAddress}, "breweryCity" = ${breweryCity}, "breweryLat" = ${breweryLat}, "breweryLng" = ${breweryLng}, "breweryName" = ${breweryName}, "breweryPictureUrl" = ${breweryPictureUrl}, "breweryState" = ${breweryState}, "breweryWebsite" = ${breweryWebsite}, "breweryZipCode" = ${breweryZipCode}
   WHERE "breweryId" = ${breweryId}`
   return 'Brewery updated Successfully'
 }
 
 export async function selectBreweryByBreweryId (breweryId: string): Promise<Brewery|null> {
-  const result = await sql <Brewery[]>`SELECT "breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng" "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipcode" = ${breweryId}`
+  const result = await sql <Brewery[]>`SELECT "breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng" "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipCode" from brewery
+   WHERE "breweryId" = ${breweryId}`
   return result.length === 1 ? result[0] : null
 }

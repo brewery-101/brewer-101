@@ -1,13 +1,11 @@
-import { getBreweryByBreweryIdController, putBreweryController } from './brewery.controller'
+import { getBreweryByBreweryIdController, postBreweryController, putBreweryController } from './brewery.controller'
 import { Router } from 'express'
-import { check , checkSchema} from 'express-validator'
-import { asyncValidatorController} from '../../utils/controllers/async-validator.controller'
-import { isLoggedInController } from '../../utils/controllers/is-logged-in.controller'
+import { check, checkSchema } from 'express-validator'
+import { asyncValidatorController } from '../../utils/controllers/async-validator.controller'
 import { breweryValidator } from './brewery.validator'
+import { isLoggedInController } from '../../utils/controllers/is-logged-in-controller'
 
 export const breweryRoute: Router = Router()
-breweryRoute.route('/')
-  .post(putBreweryController)
 
 breweryRoute.route('/:breweryId')
   .get(
@@ -16,4 +14,6 @@ breweryRoute.route('/:breweryId')
     ])
     , getBreweryByBreweryIdController
   )
-.put(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), putBreweryController)
+  .put(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), putBreweryController)
+breweryRoute.route('/secret')
+  .post(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), postBreweryController)
