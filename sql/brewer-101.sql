@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS "profile";
 
 CREATE TABLE IF NOT EXISTS "profile"(
     "profileId" uuid NOT NULL,
-    "profileActivationToken" CHAR(97),
+    "profileActivationToken" CHAR(32),
     "profileAvatarUrl" VARCHAR(255),
     "profileEmail" VARCHAR(128) NOT NULL,
     "profileHash" CHAR(97) NOT NULL,
