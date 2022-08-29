@@ -1,4 +1,4 @@
-import { getBreweryByBreweryIdController, postBreweryController, putBreweryController } from './brewery.controller'
+import { getBreweryByBreweryIdController, postBreweryController, putBreweryController, getBreweryByBreweryNameController } from './brewery.controller'
 import { Router } from 'express'
 import { check, checkSchema } from 'express-validator'
 import { asyncValidatorController } from '../../utils/controllers/async-validator.controller'
@@ -7,13 +7,21 @@ import { isLoggedInController } from '../../utils/controllers/is-logged-in-contr
 
 export const breweryRoute: Router = Router()
 
-breweryRoute.route('/:breweryId')
+breweryRoute.route('/breweryId/:breweryId')
   .get(
     asyncValidatorController([
       check('breweryId', 'please provide a valid breweryId').isUUID()
     ])
     , getBreweryByBreweryIdController
   )
+breweryRoute.route('/breweryName/:breweryName')
+  .get(
+    asyncValidatorController([
+      check('breweryName', 'please provide a valid breweryName').isString()
+    ])
+    , getBreweryByBreweryNameController
+  )
+
   .put(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), putBreweryController)
 breweryRoute.route('/secret')
   .post(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), postBreweryController)
