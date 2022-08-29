@@ -54,7 +54,8 @@ WHERE "profileId" = ${profileId}`
 
 export async function selectPartialProfileByProfileId (profileId: string) : Promise<PartialProfile|null> {
   const result = await sql<Profile[]> `
-  SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" from profile 
+  SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" 
+  FROM profile 
   WHERE "profileId" = ${profileId}`
   return result?.length === 1 ? result[0] : null
 }
@@ -66,7 +67,16 @@ export async function selectPartialProfileByProfileId (profileId: string) : Prom
  **/
 export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile|null> {
   const result = await sql <Profile[]>`
-  SELECT "profileId", "profileActivationToken", "profileEmail", "profileHash", "profileName" from profile 
+  SELECT "profileId", "profileActivationToken", "profileEmail", "profileHash", "profileName" 
+  FROM "profile" 
   WHERE "profileEmail" = ${profileEmail}`
+  return result?.length === 1 ? result[0] : null
+}
+
+export async function selectProfileByProfileName (profileName: string): Promise<Profile|null> {
+  const result = await sql <Profile[]>`
+  SELECT "profileId", "profileEmail", "profileName" 
+  FROM "profile" 
+  WHERE "profileName" = ${profileName}`
   return result?.length === 1 ? result[0] : null
 }
