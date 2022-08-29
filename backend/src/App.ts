@@ -9,6 +9,7 @@ import { signupRoute } from './apis/sign-up/signup.route'
 import { breweryRoute } from './apis/brewery/brewery.route'
 import {signInRoute} from './apis/sign-in/sign-in.route';
 import {ProfileRoute} from './apis/profile/profile.route';
+import { checkInRoute } from './apis/checkin/checkin.route'
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
 const RedisStore = RedisConnect(session)
@@ -53,6 +54,7 @@ export class App {
     this.app.use('/apis/sign-in', signInRoute)
     this.app.use('/apis/brewery', breweryRoute)
     this.app.use('/apis/profile', ProfileRoute)
+    this.app.use('/apis/check-in', checkInRoute)
   }
 
   // starts the server and tells the terminal to post a message that the server is running and on what port
