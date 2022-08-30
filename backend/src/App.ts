@@ -6,11 +6,11 @@ import session from 'express-session'
 import { createClient } from 'redis'
 import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
-import { breweryRoute } from './apis/brewery/brewery.route'
 import {signInRoute} from './apis/sign-in/sign-in.route';
 import {ProfileRoute} from './apis/profile/profile.route';
 import { checkInRoute } from './apis/checkin/checkin.route'
 import {friendRoute} from './apis/friend/friend.route';
+import { breweryRoute } from './apis/brewery/brewery.route'
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
 const RedisStore = RedisConnect(session)

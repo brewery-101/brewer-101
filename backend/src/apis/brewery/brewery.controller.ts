@@ -93,3 +93,4 @@ export async function putBreweryController (request: Request, response: Response
     return response.json({ status: 500, data: null, message: 'internal server error' })
   }
 }
+
