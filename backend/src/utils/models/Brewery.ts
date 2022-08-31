@@ -41,3 +41,9 @@ export async function selectBreweryByBreweryId (breweryId: string): Promise<Brew
    WHERE "breweryId" = ${breweryId}`
   return result.length === 1 ? result[0] : null
 }
+
+export async function selectBreweryByBreweryName (breweryName: string): Promise<Brewery|null> {
+  const result = await sql <Brewery[]>`SELECT "breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng" "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipCode" from brewery
+   WHERE "breweryName" = ${breweryName}`
+  return result.length === 1 ? result[0] : null
+}

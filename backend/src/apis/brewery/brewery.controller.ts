@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import {
   Brewery, insertBrewery,
   selectBreweryByBreweryId,
+  selectBreweryByBreweryName,
   updateBrewery
 } from '../../utils/models/Brewery'
 import { Status } from '../../utils/interfaces/Status'
@@ -57,6 +58,18 @@ export async function getBreweryByBreweryIdController (request: Request, respons
   }
 }
 
+export async function getBreweryByBreweryNameController (request: Request, response: Response): Promise<Response<Status>> {
+  try {
+    const { breweryName } = request.params
+    const mySqlResult = await selectBreweryByBreweryName(breweryName)
+    const data = mySqlResult ?? null
+    const status: Status = {status: 200, data, message: null }
+    return response.json(status)
+  } catch (error: any) {
+    return (response.json({ status: 400, data: null, message: error.message }))
+  }
+}
+
 export async function putBreweryController (request: Request, response: Response): Promise<Response<Status>> {
   try {
     const { breweryId } = request.params
@@ -80,3 +93,4 @@ export async function putBreweryController (request: Request, response: Response
     return response.json({ status: 500, data: null, message: 'internal server error' })
   }
 }
+
