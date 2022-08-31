@@ -1,4 +1,5 @@
 import { sql } from '../database.utils'
+import { CheckIn } from './Checkin';
 
 export interface Profile {
   profileId: string | null,
@@ -79,4 +80,13 @@ export async function selectProfileByProfileName (profileName: string): Promise<
   FROM "profile" 
   WHERE "profileName" = ${profileName}`
   return result?.length === 1 ? result[0] : null
+}
+export async function selectAllProfilesByFriends(profileId: string): Promise<Profile[]>{
+const data: Profile[] = await sql <Profile[]>`
+SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" 
+FROM profile
+INNER JOIN friend
+ON friend."friendRequesteeProfileId" = profile."profileId" AND friend."friendRequestorProfileId" = profile."profileId"
+Where "friendRequestApproved" = true AND ("friendRequesteeProfileId" = ${profileId} OR "friendRequesteeProfileId" = ${profileId})`
+  return data
 }
