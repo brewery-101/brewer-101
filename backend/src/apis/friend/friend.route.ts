@@ -7,7 +7,7 @@ import {
   postFriendController,
   putFriendController,
   getFriendByFriendRequesteeProfileIdController,
-  getFriendByFriendRequestorProfileIdController, getFriendByPrimaryKey, getFriendByFriendRequestApproved
+  getFriendByFriendRequestorProfileIdController, getFriendByPrimaryKey,
 } from './friend.controller'
 
 
@@ -31,5 +31,3 @@ friendRoute.route('/friendRequesteeProfileId/:friendRequesteeProfileId/friendReq
 friendRoute.route('/friendRequestorProfileId/:friendRequestorProfileId')
   .get(asyncValidatorController([check('friendRequestorProfileId', '\'please provide a valid friendRequestorProfileId\'').isUUID()]), getFriendByFriendRequestorProfileIdController)
 
-// friendRoute.route('/:friendRequestApproved')
-//   .get(isLoggedInController, getFriendByFriendRequestApproved)
