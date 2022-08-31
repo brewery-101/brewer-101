@@ -8,6 +8,7 @@ import {
 } from './profile.controller';
 import { profileValidator } from './profile.validator';
 import { isLoggedInController } from '../../utils/controllers/is-logged-in.controller';
+import {selectAllProfilesByFriends} from '../../utils/models/Profile';
 
 
 export const ProfileRoute:Router = Router()
@@ -26,3 +27,9 @@ ProfileRoute.route('/profileName/:profileName')
     ])
     , getProfileByProfileNameController
   )
+ProfileRoute.route('/friend/profileId/:profileId')
+ .get(
+  asyncValidatorController([
+    check('profileId', 'please provide a valid profileId').isUUID()
+  ])
+  , selectAllProfilesByFriends)

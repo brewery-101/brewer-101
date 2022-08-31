@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {
-  Profile,
+  Profile, selectAllProfilesByFriends,
   selectPartialProfileByProfileId,
   selectProfileByProfileId, selectProfileByProfileName,
   updateProfile,
@@ -71,4 +71,17 @@ export async function getProfileByProfileNameController (request: Request, respo
   } catch (error: any) {
     return (response.json({ status: 400, data: null, message: error.message }))
   }
+}
+
+export async function getProfilesByFriends (request: Request, response: Response): Promise<Response<Status>> {
+ try{
+  const { profileId } = request.params
+  const mySqlResult = await selectAllProfilesByFriends(profileId)
+  const data = mySqlResult ?? null
+  const status: Status = { status: 200, data, message: null }
+  return response.json(status)
+} catch (error: any) {
+  return (response.json({ status: 400, data: null, message: error.message }))
+}
+
 }
