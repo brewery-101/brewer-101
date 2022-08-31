@@ -3,7 +3,7 @@ import { Schema } from 'express-validator'
 export const checkInValidator: Schema = {
   checkInProfileId: {
     isUUID: {
-      errorMessage: 'please provide a valid TicketProfileId'
+      errorMessage: 'please provide a valid CheckInId'
     }
   },
   checkInDateTime: {
@@ -24,17 +24,7 @@ export const checkInValidator: Schema = {
   //   },
   // },
   checkInIsActive: {
-    trim: true,
-    escape: true,
-    optional: {
-      options: {
-        nullable: true
-      }
-    },
-    isLength: {
-      errorMessage: 'Description cannot be longer than 512 characters',
-      options: { min: 1, max: 512 }
-    }
+   isBoolean : {errorMessage: "please provide a valid boolean"}
 
   },
   checkinWhatChaDrinkin: {
