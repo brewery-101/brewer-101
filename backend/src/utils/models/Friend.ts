@@ -35,8 +35,3 @@ export async function selectFriendByFriendRequestorProfileId (friendRequestorPro
   const result = await sql <Friend[]>`SELECT "friendRequesteeProfileId", "friendRequestorProfileId", "friendRequestApproved" FROM Friend WHERE "friendRequestorProfileId" = ${friendRequestorProfileId}`
   return result.length === 1 ? result[0]:null
 }
-
-export async function selectFriendByFriendRequestApproved (friendRequestApproved: boolean): Promise<Friend|null> {
-  const result = await sql <Friend[]>`SELECT "friendRequesteeProfileId", "friendRequestorProfileId", "friendRequestApproved" FROM Friend WHERE "friendRequestApproved" = ${friendRequestApproved}`
-  return result.length === 1 ? result[0]:null
-}

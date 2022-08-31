@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { asyncValidatorController } from '../../utils/controllers/async-validator.controller';
 import { check, checkSchema } from 'express-validator';
 import {
+  getAllProfilesByFriends,
   getProfileByProfileIdController,
   getProfileByProfileNameController,
   putProfileController
@@ -20,6 +21,7 @@ ProfileRoute.route('/:profileId')
     , getProfileByProfileIdController
   )
   .put(isLoggedInController, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+
 ProfileRoute.route('/profileName/:profileName')
   .get(
     asyncValidatorController([
@@ -27,9 +29,10 @@ ProfileRoute.route('/profileName/:profileName')
     ])
     , getProfileByProfileNameController
   )
+
 ProfileRoute.route('/friend/profileId/:profileId')
  .get(
   asyncValidatorController([
     check('profileId', 'please provide a valid profileId').isUUID()
   ])
-  , selectAllProfilesByFriends)
+  , getAllProfilesByFriends)

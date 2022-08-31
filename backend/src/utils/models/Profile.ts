@@ -82,11 +82,12 @@ export async function selectProfileByProfileName (profileName: string): Promise<
   return result?.length === 1 ? result[0] : null
 }
 export async function selectAllProfilesByFriends(profileId: string): Promise<Profile[]>{
+  console.log(profileId)
 const data: Profile[] = await sql <Profile[]>`
 SELECT "profileId", "profileAvatarUrl", "profileEmail", "profileName" 
 FROM profile
 INNER JOIN friend
-ON friend."friendRequesteeProfileId" = profile."profileId" AND friend."friendRequestorProfileId" = profile."profileId"
-Where "friendRequestApproved" = true AND ("friendRequesteeProfileId" = ${profileId} OR "friendRequesteeProfileId" = ${profileId})`
+ON friend."friendRequesteeProfileId" = profile."profileId" OR friend."friendRequestorProfileId" = profile."profileId"
+Where "friendRequestApproved" = true AND ("friendRequesteeProfileId" = ${profileId} OR "friendRequesteeProfileId" = ${profileId}) AND "profileId" != ${profileId}`
   return data
 }

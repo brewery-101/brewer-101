@@ -30,6 +30,10 @@ export const checkInValidator: Schema = {
   checkinWhatChaDrinkin: {
     trim: true,
     escape: true,
+    isLength: {
+      errorMessage: 'What cha drinkin is the wrong size',
+      options: {min: 1, max: 32}
+    },
     optional: {
       options: {
         nullable: true

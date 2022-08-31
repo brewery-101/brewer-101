@@ -3,6 +3,7 @@ import { Schema } from 'express-validator'
 export const profileValidator: Schema = {
   profileAvatarUrl:{
     trim: true,
+    isURL: true,
     optional: {
       options: {
         nullable: true

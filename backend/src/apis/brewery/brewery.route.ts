@@ -21,7 +21,5 @@ breweryRoute.route('/breweryName/:breweryName')
     ])
     , getBreweryByBreweryNameController
   )
-
-  .put(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), putBreweryController)
 breweryRoute.route('/secret')
   .post(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), postBreweryController)

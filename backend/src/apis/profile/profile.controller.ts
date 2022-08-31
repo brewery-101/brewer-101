@@ -73,7 +73,7 @@ export async function getProfileByProfileNameController (request: Request, respo
   }
 }
 
-export async function getProfilesByFriends (request: Request, response: Response): Promise<Response<Status>> {
+export async function getAllProfilesByFriends (request: Request, response: Response): Promise<Response<Status>> {
  try{
   const { profileId } = request.params
   const mySqlResult = await selectAllProfilesByFriends(profileId)

@@ -14,12 +14,6 @@ export interface Brewery {
 }
 
 
-
-
-
-
-
-
 export async function insertBrewery (brewery: Brewery) :Promise<string>{
   const {breweryAddress, breweryCity, breweryLat, breweryLng, breweryName, breweryPictureUrl, breweryState, breweryWebsite, breweryZipCode} = brewery
   await sql `INSERT INTO "brewery"("breweryId", "breweryAddress", "breweryCity", "breweryLat", "breweryLng", "breweryName", "breweryPictureUrl", "breweryState", "breweryWebsite", "breweryZipCode" )

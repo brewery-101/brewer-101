@@ -1,5 +1,4 @@
 import { sql } from '../database.utils'
-import { Brewery } from './Brewery'
 
 export interface CheckIn {
   checkInId: string | null,
