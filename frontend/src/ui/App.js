@@ -3,12 +3,13 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export const App = () => (
   <>
     <BrowserRouter>
       <Routes>
-        <Route  path='/Home' element={<Home />} />
+        <Route  path='/' element={<Home />} />
         <Route path='*' element={<FourOhFour />} />
       </Routes>
     </BrowserRouter>
