@@ -1,4 +1,10 @@
-import { getBreweryByBreweryIdController, postBreweryController, putBreweryController, getBreweryByBreweryNameController } from './brewery.controller'
+import {
+  getBreweryByBreweryIdController,
+  postBreweryController,
+  putBreweryController,
+  getBreweryByBreweryNameController,
+  getBreweriesController
+} from './brewery.controller'
 import { Router } from 'express'
 import { check, checkSchema } from 'express-validator'
 import { asyncValidatorController } from '../../utils/controllers/async-validator.controller'
@@ -23,3 +29,7 @@ breweryRoute.route('/breweryName/:breweryName')
   )
 breweryRoute.route('/secret')
   .post(isLoggedInController, asyncValidatorController(checkSchema(breweryValidator)), postBreweryController)
+
+breweryRoute.route('/')
+  .get(
+    asyncValidatorController([]), getBreweriesController)

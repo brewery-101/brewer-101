@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import {
-  Brewery, insertBrewery,
+  Brewery, insertBrewery, selectBreweries,
   selectBreweryByBreweryId,
   selectBreweryByBreweryName,
   updateBrewery
@@ -91,6 +91,17 @@ export async function putBreweryController (request: Request, response: Response
     return response.json({ status: 200, data: null, message })
   } catch (error: any) {
     return response.json({ status: 500, data: null, message: 'internal server error' })
+  }
+}
+
+export async function getBreweriesController (request: Request, response: Response): Promise<Response<Status>> {
+  try {
+    const mySqlResult = await selectBreweries()
+    const data = mySqlResult ?? null
+    const status: Status = {status: 200, data, message: null }
+    return response.json(status)
+  } catch (error: any) {
+    return (response.json({ status: 400, data: null, message: error.message }))
   }
 }
 
