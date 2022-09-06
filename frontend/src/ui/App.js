@@ -3,9 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
+import { BrewCrewNavBar } from './Navbar'
+
 
 export const App = () => (
   <>
+    <BrewCrewNavBar/>
     <BrowserRouter>
       <Routes>
         <Route  path='/' element={<Home />} />
