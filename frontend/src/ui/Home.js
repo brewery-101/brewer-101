@@ -1,9 +1,14 @@
-import React from "react"
+import React, { useState } from 'react'
 import { SignUpModal } from './SignUpModal'
 import { SignInModal } from './SignInModal'
 import { BreweryMap } from './BreweryMap'
-
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 export function Home () {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
 
@@ -11,6 +16,20 @@ export function Home () {
       <BreweryMap/>
       <SignUpModal/>
       <SignInModal/>
+
+
+      <Button variant="primary" onClick={handleShow}>
+        Check Friends
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Checked In Friends</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          List of Friends here
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
-  )
+  );
 }
