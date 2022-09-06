@@ -20,10 +20,11 @@ export function CheckInModal() {
 
   return (
     <>
+      <div className="d-grid gap-2">
       <Button variant="primary" onClick={handleShow}>
         CHECK IN
       </Button>
-
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
