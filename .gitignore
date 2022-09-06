@@ -18,6 +18,7 @@
 */.env.local
 */.env.development.local
 */.env.test.local
+/frontend/.env
 
 
 */npm-debug.log*
