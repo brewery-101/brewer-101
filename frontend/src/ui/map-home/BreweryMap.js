@@ -1,6 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from 'react-bootstrap'
-import Map from 'react-map-gl'
+import Map from 'react-map-home-gl'
 import { Pin } from './Pin'
 
 export function BreweryMap () {

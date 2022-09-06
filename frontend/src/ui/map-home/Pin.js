@@ -1,4 +1,4 @@
-import {Marker} from "react-map-gl";
+import {Marker} from "react-map-home-gl";
 
 export function Pin(props) {
   const {lat, lng, index} = props

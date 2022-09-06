@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { SignUpModal } from './SignUpModal'
-import { SignInModal } from './SignInModal'
+import { SignUpModal } from '../shared/main-nav/sign-up/SignUpModal'
+import { SignInModal } from '../shared/main-nav/sign-in/SignInModal'
 import { BreweryMap } from './BreweryMap'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
