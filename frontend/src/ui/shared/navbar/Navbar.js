@@ -1,6 +1,8 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { CheckInModal } from './CheckInModal'
+import { SignInModal } from '../main-nav/sign-in/SignInModal'
+import { SignUpModal } from '../main-nav/sign-up/SignUpModal'
 
 export function BrewCrewNavBar () {
   return (
@@ -10,6 +12,8 @@ export function BrewCrewNavBar () {
       <div className="container-fluid">
         <Navbar bg="light" variant="light">
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <SignInModal/>
+          <SignUpModal/>
           <CheckInModal/>
           <Nav className="me-auto">
             <Nav.Link href="#Map">Map</Nav.Link>
