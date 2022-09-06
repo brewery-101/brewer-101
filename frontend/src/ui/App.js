@@ -5,7 +5,6 @@ import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { BrewCrewNavBar } from './shared/navbar/Navbar'
-
 export const App = () => (
   <>
     <BrewCrewNavBar/>
