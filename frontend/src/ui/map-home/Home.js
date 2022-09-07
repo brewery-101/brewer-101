@@ -1,34 +1,42 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BreweryMap } from './BreweryMap'
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+// import Button from 'react-bootstrap/Button';
+// import Offcanvas from 'react-bootstrap/Offcanvas';
 import "./Map-Home-Style.css"
+import { Container, Row, Col } from 'react-bootstrap'
+import { CheckedInFriends } from './CheckedInFriends'
 
 export function Home () {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const [show, setShow] = useState(false);
+  //
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
   return (
     <>
+      <Container fluid>
+        <Row>
+          <Col md={4} className="border border-1 border-dark"><CheckedInFriends/></Col>
+          <Col md={8} className="px-0"><BreweryMap/></Col>
+        </Row>
+      </Container>
 
 
-      <BreweryMap/>
 
 
 
-      <Button variant="primary" onClick={handleShow}>
-        Check Friends
-      </Button>
 
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Checked In Friends</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          List of Friends here
-        </Offcanvas.Body>
-      </Offcanvas>
+      {/*<Button variant="primary" onClick={handleShow}>*/}
+      {/*  Check Friends*/}
+      {/*</Button>*/}
+
+      {/*<Offcanvas show={show} onHide={handleClose}>*/}
+      {/*  <Offcanvas.Header closeButton>*/}
+      {/*    <Offcanvas.Title>Checked In Friends</Offcanvas.Title>*/}
+      {/*  </Offcanvas.Header>*/}
+      {/*  <Offcanvas.Body>*/}
+      {/*    List of Friends here*/}
+      {/*  </Offcanvas.Body>*/}
+      {/*</Offcanvas>*/}
     </>
   );
 }
