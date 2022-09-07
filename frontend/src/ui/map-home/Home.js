@@ -4,6 +4,7 @@ import { SignInModal } from '../shared/main-nav/sign-in/SignInModal'
 import { BreweryMap } from './BreweryMap'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
 export function Home () {
   const [show, setShow] = useState(false);
 
