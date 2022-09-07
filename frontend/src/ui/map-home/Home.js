@@ -16,8 +16,8 @@ export function Home () {
     <>
       <Container fluid>
         <Row>
-          <Col md={2}><CheckedInFriends/></Col>
-          <Col md={10}><BreweryMap/></Col>
+          <Col md={4} className="border border-1 border-dark"><CheckedInFriends/></Col>
+          <Col md={8} className="pe-0"><BreweryMap/></Col>
         </Row>
       </Container>
 

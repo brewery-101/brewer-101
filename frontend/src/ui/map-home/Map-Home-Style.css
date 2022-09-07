@@ -4,9 +4,15 @@ body {
 
 .mapTarget {
     width: 100%;
-    height: 500%
+    height: 100vh;
+    margin-right: 0;
 }
 
 .mapContainerTarget {
     padding: 0;
+}
+
+.smallProfileIcon {
+width: 100%;
+height: auto;
 }
