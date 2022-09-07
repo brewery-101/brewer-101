@@ -23,7 +23,7 @@ export function BrewCrewNavBar () {
               <Nav className="me-auto justify-content-end">
                 <Nav.Link href="/">Map</Nav.Link>
                 <Nav.Link href="#">Need something?</Nav.Link>
-                <Nav.Link href="#User">UserName</Nav.Link>
+                <Nav.Link href="/profile-page">UserName</Nav.Link>
               </Nav>
             </Col>
           </Navbar>
