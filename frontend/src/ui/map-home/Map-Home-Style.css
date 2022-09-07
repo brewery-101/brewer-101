@@ -1,7 +1,7 @@
 body {
     background-color: orange;
 }
-
+@media screen and (min-width: 768px){
 .mapTarget {
     width: 100%;
     height: 100vh;
@@ -16,4 +16,16 @@ body {
 .smallProfileIcon {
 width: 100%;
 height: auto;
+}
+}
+
+@media screen and (max-width: 767px){
+    .mapTarget {
+        width: 50%;
+        height: 50vh;
+        margin-left: 0;
+        margin-right: 0;
+        align-content: center;
+    }
+
 }
