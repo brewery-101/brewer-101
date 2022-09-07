@@ -14,14 +14,14 @@ export function BrewCrewNavBar () {
         <Row>
           <Navbar bg="light" variant="light">
             <Col md={{ span: 2, offset: 0}} className="ps-4">
-              <Navbar.Brand href="#home">ABQ BrewCrew</Navbar.Brand>
+              <Navbar.Brand href="/">ABQ BrewCrew</Navbar.Brand>
             </Col>
             <Col md={{ span: 6, offset: 1}}>
               <CheckInModal/>
             </Col>
             <Col md={{ span: 2, offset: 1}} className="pe-4">
               <Nav className="me-auto justify-content-end">
-                <Nav.Link href="#Map">Map</Nav.Link>
+                <Nav.Link href="/">Map</Nav.Link>
                 <Nav.Link href="#">Need something?</Nav.Link>
                 <Nav.Link href="#User">UserName</Nav.Link>
               </Nav>
