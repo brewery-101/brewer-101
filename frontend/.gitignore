@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-setupProxy.js/
+/setupProxy.js
 # production
 /build
 
