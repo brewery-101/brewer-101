@@ -1,7 +1,8 @@
 import React from "react"
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, } from 'react-bootstrap'
 import Map from 'react-map-gl'
 import { Pin } from './Pin'
+import "./Map-Home-Style.css"
 
 export function BreweryMap () {
   const [points] = React.useState([
@@ -13,22 +14,20 @@ export function BreweryMap () {
 
   return (
     <>
-      <Container>
-        <Row className={"justify-content-center"}>
-          <Col>
+      <Container fluid className= "mapContainerTarget">
+        <div className= "mapTarget">
             <Map
               initialViewState={{
                 latitude: 35.33,
                 longitude: -106.65,
                 zoom: 9
               }}
-              style={{ width: 900, height: 600 }}
+
               mapStyle="mapbox://styles/mapbox/streets-v11"
             >
               {points.map((point, index) => <Pin lat={point.lat} lng={point.lng} index={index} key={index}/>)}
             </Map>
-          </Col>
-        </Row>
+      </div>
       </Container>
     </>
   )

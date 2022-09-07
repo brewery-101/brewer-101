@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { SignUpModal } from '../shared/main-nav/sign-up/SignUpModal'
-import { SignInModal } from '../shared/main-nav/sign-in/SignInModal'
 import { BreweryMap } from './BreweryMap'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import "./Map-Home-Style.css"
 
 export function Home () {
   const [show, setShow] = useState(false);
@@ -13,10 +12,9 @@ export function Home () {
   return (
     <>
 
-      <h1>Home</h1>
+
       <BreweryMap/>
-      <SignUpModal/>
-      <SignInModal/>
+
 
 
       <Button variant="primary" onClick={handleShow}>
