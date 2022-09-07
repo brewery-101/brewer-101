@@ -1,8 +1,10 @@
 import React from "react"
-import { Container, } from 'react-bootstrap'
 import Map from 'react-map-gl'
 import { Pin } from './Pin'
 import "./Map-Home-Style.css"
+
+
+
 
 export function BreweryMap () {
   const [points] = React.useState([
@@ -14,7 +16,6 @@ export function BreweryMap () {
 
   return (
     <>
-      <Container fluid className= "mapContainerTarget">
         <div className= "mapTarget">
             <Map
               initialViewState={{
@@ -28,7 +29,6 @@ export function BreweryMap () {
               {points.map((point, index) => <Pin lat={point.lat} lng={point.lng} index={index} key={index}/>)}
             </Map>
       </div>
-      </Container>
     </>
   )
 }
