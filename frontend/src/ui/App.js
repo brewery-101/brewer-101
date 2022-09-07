@@ -7,9 +7,25 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { BrewCrewNavBar } from './shared/navbar/Navbar'
 import { ProfilePage } from './profile-page/ProfilePage'
 import { BreweryPage } from './brewery/BreweryPage'
+import { Provider } from 'react-redux'
 
-export const App = () => (
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faDove,
+  faEnvelope,
+  faKey,
+  faPencilAlt,
+  faPhone,
+  faSignOutAlt,
+  faStroopwafel, faUser,
+} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faStroopwafel, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSignOutAlt, faUser);
+
+export const App = ({store}) => (
   <>
+    <Provider store={store}>
     <BrewCrewNavBar/>
     <BrowserRouter>
       <Routes>
@@ -19,6 +35,6 @@ export const App = () => (
         <Route path='/Brewery/' element={<BreweryPage/>} />
       </Routes>
     </BrowserRouter>
-
+    </Provider>
   </>
 )

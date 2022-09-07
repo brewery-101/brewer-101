@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { SignInForm } from './SignInForm';
 
-
 export function SignInModal() {
   const [show, setShow] = useState(false);
 

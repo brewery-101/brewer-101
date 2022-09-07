@@ -16,7 +16,7 @@ export function BrewCrewNavBar () {
         <Row>
           <Navbar bg="light" variant="light">
             <Col md={{ span: 2, offset: 0}} className="ps-4">
-            <SignUpModal/>
+              <SignUpModal/>
               <SignInModal/>
               <Navbar.Brand href="/">ABQ BrewCrew</Navbar.Brand>
             </Col>
