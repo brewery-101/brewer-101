@@ -5,6 +5,7 @@ import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { BrewCrewNavBar } from './shared/navbar/Navbar'
+import { BreweryPage } from './brewery/BreweryPage'
 export const App = () => (
   <>
     <BrewCrewNavBar/>
@@ -12,6 +13,8 @@ export const App = () => (
       <Routes>
         <Route  path='/' element={<Home />} />
         <Route path='*' element={<FourOhFour />} />
+
+        <Route path='/Brewery/' element={<BreweryPage/>} />
       </Routes>
     </BrowserRouter>
 
