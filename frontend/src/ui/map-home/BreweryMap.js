@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import Map from 'react-map-gl'
 import { Pin } from './Pin'
 import "./Map-Home-Style.css"
@@ -30,7 +30,8 @@ export function BreweryMap () {
 
               mapStyle="mapbox://styles/mapbox/streets-v11"
             >
-              {breweries.map((breweries, index) => <Pin lat={breweries.breweryLat} lng={breweries.breweryLng} index={index} key={index}/>)}
+              {breweries.map((breweries, index) =>
+                <Pin breweries={breweries} index={index} key={index}/>)}
             </Map>
       </div>
     </>
