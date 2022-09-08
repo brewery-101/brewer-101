@@ -2,17 +2,21 @@ import React from "react"
 import Map from 'react-map-gl'
 import { Pin } from './Pin'
 import "./Map-Home-Style.css"
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchInitialBreweries } from '../../store/breweries'
 
 
 
 
 export function BreweryMap () {
-  const [points] = React.useState([
-    { lat: 35.332, lng: -106.652 },
-    { lat: 35.339, lng: -106.656 },
-    { lat: 35.40, lng: -106.666 },
-    { lat: 35.23, lng: -106.4444 }
-  ])
+
+  const breweries = useSelector(state => state.breweries ?? [])
+  const dispatch = useDispatch ()
+  const initialEffects = () => {
+    dispatch(fetchInitialBreweries())
+  }
+
+  React.useEffect(initialEffects, [dispatch])
 
   return (
     <>
@@ -26,7 +30,7 @@ export function BreweryMap () {
 
               mapStyle="mapbox://styles/mapbox/streets-v11"
             >
-              {points.map((point, index) => <Pin lat={point.lat} lng={point.lng} index={index} key={index}/>)}
+              {breweries.map((breweries, index) => <Pin lat={breweries.breweryLat} lng={breweries.breweryLng} index={index} key={index}/>)}
             </Map>
       </div>
     </>

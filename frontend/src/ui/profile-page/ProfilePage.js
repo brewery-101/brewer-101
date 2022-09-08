@@ -1,6 +1,7 @@
 import React from 'react'
 import "./style.css"
 import { Col, Container, Row, Form, Button } from 'react-bootstrap'
+import { EditProfileModal } from './EditProfileModal'
 
 
 export function ProfilePage () {
@@ -10,6 +11,7 @@ export function ProfilePage () {
     <>
       <Container className="breweryName text-center py-2">
         <h1 className="m-5 py-2 Brewery Title bg-light border-dark">Profile Page</h1>
+        <EditProfileModal/>
       </Container>
 
       <Container>
