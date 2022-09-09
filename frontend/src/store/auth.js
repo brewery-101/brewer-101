@@ -6,13 +6,13 @@ const slice = createSlice({
   name: "auth",
   initialState: null,
   reducers: {
-    getAuth: (auth, action) => {
+    setAuth: (auth, action) => {
       return action.payload
     }
   }
 })
 
-export const {getAuth} = slice.actions
+export const {setAuth} = slice.actions
 
 export const fetchAuth = () => async (dispatch, getState) => {
   const state = getState()
@@ -23,7 +23,7 @@ export const fetchAuth = () => async (dispatch, getState) => {
     if (decodedToken?.exp < Math.round( new Date() / 1000)){
       decodedToken = null
     }
-    dispatch(getAuth(decodedToken))
+    dispatch(setAuth(decodedToken))
   }
 
 };

@@ -5,9 +5,17 @@ import { Col, Container, Row } from 'react-bootstrap'
 import "./navbar-style.css"
 import { SignUpModal } from '../main-nav/sign-up/SignUpModal'
 import { SignInModal } from '../main-nav/sign-in/SignInModal'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuth } from '../../../store/auth'
 
 export function BrewCrewNavBar () {
+  const auth = useSelector(state=>state.auth ?? null)
+  const dispatch = useDispatch()
+  const effects = ()=>{
+    dispatch(fetchAuth())
+  }
+  useEffect(effects, [dispatch])
   return (
     <>
       <span className="position-relative trigger"/>

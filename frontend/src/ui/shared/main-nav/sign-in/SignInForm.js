@@ -1,7 +1,7 @@
 import React from 'react'
 import { httpConfig } from '../../../../utils/httpConfig'
 import jwtDecode from 'jwt-decode'
-import { getAuth } from '../../../../store/auth'
+import { setAuth } from '../../../../store/auth'
 import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap'
@@ -38,7 +38,7 @@ export function SignInForm () {
           window.localStorage.setItem('authorization', reply.headers['authorization'])
           resetForm()
           let jwtToken = jwtDecode(reply.headers['authorization'])
-          dispatch(getAuth(jwtToken))
+          dispatch(setAuth(jwtToken))
         }
         setStatus({ message, type })
       })
