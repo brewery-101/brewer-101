@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 
 
 export function FriendAtBrewery({friend, thatOneCheckIn}){
-console.log(thatOneCheckIn)
+
   return(
     <>
       <Row className="peopleAtBrewery my-3">

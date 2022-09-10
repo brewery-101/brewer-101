@@ -27,6 +27,15 @@ export async function updateCheckIn (checkIn: CheckIn): Promise<string> {
   return 'Check In updated Successfully!'
 }
 
+export async function updateCheckInToInactive (checkInProfileId: string): Promise<string> {
+  await sql `
+  UPDATE "checkIn"
+  SET "checkInIsActive" = false
+  WHERE "checkInProfileId" = ${checkInProfileId}`
+  return 'Check In updated Successfully!'
+}
+
+
 export async function selectCheckInByCheckInId (checkInId: string): Promise<CheckIn|null> {
   const result = await sql<CheckIn[]>`SELECT "checkInId", "checkInProfileId", "checkInBreweryId", "checkInDateTime", "checkInEndTime", "checkInIsActive", "checkInWhatChaDrinkin" FROM "checkIn" WHERE "checkInId" = ${checkInId}`
   return result?.length === 1 ? result[0] : null

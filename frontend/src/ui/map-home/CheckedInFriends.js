@@ -23,14 +23,23 @@ const activeCheckins = useSelector(state => state.activeCheckins ?? [])
   // console.log(breweries.length && friends.length && activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId).map((activeCheckin, index) =>breweries.filter(friend => friend.profileId === activeCheckin.checkInProfileId)[0].breweryName))
 
   const activeCheckinsWithoutSelf = activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId)
+  console.log(activeCheckinsWithoutSelf)
+  console.log(friends)
+  const activeCheckinsWithFriends = activeCheckinsWithoutSelf.filter(checkin=>friends.map(friend=>friend.profileId).includes(checkin.checkInProfileId))
 
+console.log(activeCheckinsWithFriends)
   return (
     <>
       {
-        friends.length && activeCheckinsWithoutSelf.length && breweries.filter (brewery => activeCheckinsWithoutSelf.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithoutSelf.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).filter(checkin => checkin.checkInProfileId === friend.friendRequestorProfileId || checkin.checkInProfileId === friend.friendRequesteeProfileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
+        friends.length && activeCheckinsWithFriends.length && breweries.filter(brewery => activeCheckinsWithFriends.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithFriends.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).map(checkin=>checkin.checkInProfileId).includes(friend.profileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
       }
 
     </>
+
+  // {
+  //   friends.length && activeCheckinsWithoutSelf.length && breweries.filter (brewery => activeCheckinsWithoutSelf.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithoutSelf.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).filter(checkin => checkin.checkInProfileId === friend.friendRequestorProfileId || checkin.checkInProfileId === friend.friendRequesteeProfileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
+  // }
+
 // <div>
 //   {breweries.length && friends.length && activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId).map((activeCheckin, index) =>
 //

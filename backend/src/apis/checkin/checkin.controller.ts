@@ -5,7 +5,7 @@ import {
   insertCheckIn, selectCheckInByCheckInBreweryId,
   selectCheckInByCheckInId,
   selectCheckInByCheckInProfileId, selectCheckInsByCheckInIsActive,
-  updateCheckIn
+  updateCheckIn, updateCheckInToInactive
 } from '../../utils/models/Checkin'
 import { Profile } from '../../utils/models/Profile'
 
@@ -46,6 +46,9 @@ export async function postCheckInController (request: Request, response: Respons
       checkInIsActive,
       checkInWhatChaDrinkin
     }
+
+    await updateCheckInToInactive(profileId)
+
     const result = await insertCheckIn(checkIn)
     const status: Status = {
       status: 200,
