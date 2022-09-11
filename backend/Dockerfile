@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:14
 ARG NODE_ENV=development
 ENV NODE_ENV $NODE_ENV
 ARG PORT=4200

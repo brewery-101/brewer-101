@@ -23,7 +23,6 @@ friendRoute.route('/friendRequesteeProfileId/:friendRequesteeProfileId/friendReq
   .put(isLoggedInController,asyncValidatorController(checkSchema(friendValidator)), putFriendController )
   .get(asyncValidatorController ([check('friendRequesteeProfileId', '\'please provide a valid friendRequesteeProfileId\'').isUUID(), check('friendRequestorProfileId', '\'please provide a valid friendRequestorProfileId\'').isUUID()]),getFriendByPrimaryKey)
 
-  // [
   // check('friendRequesteeProfileId', 'please provide a valid friendRequesteeProfileId').isUUID(), check('friendRequestorProfileId', 'please provide a valid friendProfileId').isUUID()]
   friendRoute.route('/friendRequesteeProfileId/:friendRequesteeProfileId')
   .get(asyncValidatorController([check('friendRequesteeProfileId', '\'please provide a valid friendRequesteeProfileId\'').isUUID()]), getFriendByFriendRequesteeProfileIdController)

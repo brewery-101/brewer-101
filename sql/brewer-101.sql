@@ -20,11 +20,11 @@ CREATE TABLE IF NOT EXISTS "profile"(
 
 CREATE TABLE IF NOT EXISTS "brewery"(
     "breweryId" uuid NOT NULL ,
-    "breweryAddress" VARCHAR(32) NOT NULL,
+    "breweryAddress" VARCHAR(128) NOT NULL,
     "breweryCity" VARCHAR(32) NOT NULL,
-    "breweryLat" REAL,
-    "breweryLng" REAL,
-    "breweryName" VARCHAR(32) NOT NULL,
+    "breweryLat" REAL NOT NULL,
+    "breweryLng" REAL NOT NULL,
+    "breweryName" VARCHAR(128) NOT NULL,
     "breweryPictureUrl" VARCHAR(255),
     "breweryState" CHAR(2) NOT NULL,
     "breweryWebsite" VARCHAR(255),
