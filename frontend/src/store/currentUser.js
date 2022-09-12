@@ -14,7 +14,6 @@ const currentUserSlice = createSlice({
 
 export const {getCurrentUserByProfileId} = currentUserSlice.actions
 
-export default currentUserSlice.reducer
 
 export const fetchCurrentUser = () => async (dispatch, getState) => {
   await dispatch(fetchAuth())
@@ -24,3 +23,5 @@ export const fetchCurrentUser = () => async (dispatch, getState) => {
     dispatch(getCurrentUserByProfileId(data))
   }
 }
+
+export default currentUserSlice.reducer

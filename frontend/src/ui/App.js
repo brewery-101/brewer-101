@@ -26,12 +26,12 @@ library.add(faStroopwafel, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSi
 export const App = ({store}) => (
   <>
     <Provider store={store}>
-    <BrewCrewNavBar/>
     <BrowserRouter>
+      <BrewCrewNavBar/>
       <Routes>
-        <Route  path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='*' element={<FourOhFour />} />
-        <Route path='/profile-page' element={<ProfilePage/>} />
+        <Route exact path='/profile-page/:profileId' element={<ProfilePage/>} profileId=":profileId" />
         <Route path='/Brewery/' element={<BreweryPage/>} />
       </Routes>
     </BrowserRouter>

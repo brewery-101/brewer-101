@@ -8,12 +8,13 @@ const slice = createSlice({
     setProfile: (profiles, action) => {
       profiles[action.payload.profileId] = action.payload.data
     }
+
   }
 })
 
 export const {setProfile} = slice.actions
 
-export const fetchProfileByProfileId = (profileId) => async (dispatch, getState) => {
+export const fetchAllProfiles = (profileId) => async (dispatch, getState) => {
   const state = getState()
 
   const profiles = state.profiles
