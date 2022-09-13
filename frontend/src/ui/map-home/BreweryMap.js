@@ -23,9 +23,9 @@ export function BreweryMap () {
         <div className= "mapTarget">
             <Map
               initialViewState={{
-                latitude: 35.33,
-                longitude: -106.65,
-                zoom: 9
+                latitude: 35.1048,
+                longitude: -106.6300,
+                zoom: 11.5
               }}
 
               mapStyle="mapbox://styles/mapbox/streets-v11"
