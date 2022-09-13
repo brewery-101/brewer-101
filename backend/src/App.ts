@@ -11,6 +11,7 @@ import {ProfileRoute} from './apis/profile/profile.route';
 import { checkInRoute } from './apis/checkin/checkin.route'
 import {friendRoute} from './apis/friend/friend.route';
 import { breweryRoute } from './apis/brewery/brewery.route'
+import { ImageUploadRouter } from './apis/image-uploader/image-uploader.route'
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
 const RedisStore = RedisConnect(session)
@@ -57,6 +58,7 @@ export class App {
     this.app.use('/apis/profile', ProfileRoute)
     this.app.use('/apis/check-in', checkInRoute)
     this.app.use('/apis/friend', friendRoute)
+    this.app.use('/apis/image-upload', ImageUploadRouter)
   }
 
   // starts the server and tells the terminal to post a message that the server is running and on what port

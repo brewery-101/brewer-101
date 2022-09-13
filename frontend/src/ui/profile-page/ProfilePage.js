@@ -59,7 +59,7 @@ export function ProfilePage () {
             <>
             <Col md={6} className="profileFriendCol bg-light">
             <h2>My Friends</h2>
-            {console.log(friends)}
+
 
             {friends.map((friends, index) =>
               <>
