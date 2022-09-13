@@ -57,7 +57,7 @@ export function ProfilePage () {
           {/*Logged in, my own profile*/}
           {isCurrentUser === true &&
             <>
-            <Col md={6} className="breweryFriendCol bg-light">
+            <Col md={6} className="profileFriendCol bg-light">
             <h2>My Friends</h2>
             {console.log(friends)}
 
@@ -80,11 +80,11 @@ export function ProfilePage () {
         {/*Logged in, friends with user*/}
         {isFriend === true && isCurrentUser === false && (
           <>
-          <Col md={6} className="breweryFriendCol bg-light">
+          <Col md={6} className="profileFriendCol bg-light">
             <h2>Their Friends</h2>
             {friends.map((friends, index) =>
               <>
-                <FriendList friends={friends} currentUser={currentUser} key={friends.profileName}/>
+                <FriendList classname="friendComponent" friends={friends} currentUser={currentUser} key={friends.profileName}/>
                 <Button onClick={()=> navigate(`/profile-page/${friends.profileId}`)}>Go To Profile</Button>
               </>
             )}
@@ -96,7 +96,7 @@ export function ProfilePage () {
 
         {isFriend === false && isCurrentUser === false && (
           <>
-          <Col md={6} className="breweryFriendCol bg-light">
+          <Col md={6} className="profileFriendCol bg-light">
             <h2>Send Friend Request?</h2>
             <AddAFriendForm currentUser={currentUser} key={friends.profileId}/>
 

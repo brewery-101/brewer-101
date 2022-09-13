@@ -18,10 +18,10 @@ import {
   faPencilAlt,
   faPhone,
   faSignOutAlt,
-  faStroopwafel, faUser,
+  faStroopwafel, faUser, faBeerMugEmpty
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStroopwafel, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSignOutAlt, faUser);
+library.add(faStroopwafel, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSignOutAlt, faUser, faBeerMugEmpty);
 
 export const App = ({store}) => (
   <>
