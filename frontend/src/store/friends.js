@@ -22,5 +22,12 @@ export const fetchInitialFriends = () => async (dispatch, getState)=> {
     dispatch(setInitialFriends(data))
   }
 }
+export const fetchInitialFriendsByProfileId = (profileId) => async (dispatch, getState)=> {
+  const {auth} = getState()
+  if (auth !== null){
+    const {data} = await httpConfig(`/apis/profile/friend/profileId/${profileId}`)
+    dispatch(setInitialFriends(data))
+  }
+}
 
 export default slice.reducer

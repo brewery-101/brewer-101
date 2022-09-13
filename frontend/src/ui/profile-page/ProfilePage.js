@@ -7,25 +7,34 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchSingleProfileByProfileId } from '../../store/singleProfile'
 import { CheckedInFriends } from '../map-home/CheckedInFriends'
 import { fetchCurrentUser } from '../../store/currentUser'
-import { fetchInitialFriends } from '../../store/friends'
+import { fetchInitialFriends, fetchInitialFriendsByProfileId } from '../../store/friends'
 
 export function ProfilePage () {
   let { profileId } = useParams()
   const profile = useSelector(state => state.singleProfile[profileId] ? state.singleProfile[profileId] : null)
   const currentUser = useSelector(state => state.currentUser ? state.currentUser : null)
+  const isCurrentUser = profile && profile.profileId === currentUser?.profileId
   const friends = useSelector(state => state.friends ? state.friends : null)
+  const isFriend = useSelector(state => {
+    console.log(state.friends)
+    if (state.friends === null){
+      return false
+    }
+    return state.friends.some(friend => friend.profileId === state.auth?.profileId)
+
+
+  })
   const dispatch = useDispatch()
   const initialEffects = () => {
     dispatch(fetchSingleProfileByProfileId(profileId))
     dispatch(fetchCurrentUser())
-    dispatch(fetchInitialFriends())
+    dispatch(fetchInitialFriendsByProfileId(profileId))
   }
   React.useEffect(initialEffects, [profileId, dispatch])
   let breweryPic = require('./beer.jpg')
   let profilePic = require('./beer.jpg')
   // const {profileName, profileAvatarUrl} = profile[profileId]
-  console.log(friends)
-
+  console.log(isFriend)
   return profile ? (
     <>
       <Container className="breweryName text-center py-2">
@@ -46,7 +55,7 @@ export function ProfilePage () {
           {/*brewery friend list*/}
           <Col md={6} className="breweryFriendCol bg-light">
             {/*Logged in, my own profile*/}
-            {profile && profile.profileId === currentUser?.profileId &&
+            {isCurrentUser === true &&
               <>
                 <h2>My Friends</h2>
                 <CheckedInFriends/>
@@ -66,11 +75,11 @@ export function ProfilePage () {
               </>
             }
             {/*Logged in, friends with user*/}
-            {friends && !!(friends.find((friend) => friend.profileId === profileId)) && (<p>i have friends</p>)}
+            {isFriend === true && isCurrentUser === false && (<p>i have friends</p>)}
 
             {/*Logged in, Not friends with user*/}
 
-            {friends && !!(friends.find((friend) => friend.profileId !== profileId)) && (<p>i have NO friends</p>)}
+            {isFriend === false && isCurrentUser === false && (<p>i have NO friends</p>)}
 
             <Row className="peopleAtBrewery">
               <Col sm={3} className="personIcon">
