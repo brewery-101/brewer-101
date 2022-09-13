@@ -1,13 +1,14 @@
 import React from 'react'
 import './style.css'
-import { Col, Container, Row, Form, Button } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { EditProfileModal } from './EditProfileModal'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSingleProfileByProfileId } from '../../store/singleProfile'
-import { CheckedInFriends } from '../map-home/CheckedInFriends'
 import { fetchCurrentUser } from '../../store/currentUser'
-import { fetchInitialFriends, fetchInitialFriendsByProfileId } from '../../store/friends'
+import { fetchInitialFriendsByProfileId } from '../../store/friends'
+import { FriendList } from './FriendList'
+import { AddAFriendForm } from './AddAFriendForm'
 
 export function ProfilePage () {
   let { profileId } = useParams()
@@ -31,7 +32,6 @@ export function ProfilePage () {
     dispatch(fetchInitialFriendsByProfileId(profileId))
   }
   React.useEffect(initialEffects, [profileId, dispatch])
-  let breweryPic = require('./beer.jpg')
   let profilePic = require('./beer.jpg')
   // const {profileName, profileAvatarUrl} = profile[profileId]
   console.log(isFriend)
@@ -47,35 +47,36 @@ export function ProfilePage () {
         <Row className=" py-2">
 
           <h2>{profile.profileName}</h2>
-          {/*the brewery image*/}
+          {/*the profile image*/}
           <Col md={6} className="breweryImage ps-0">
             <img src={profile.profileAvatarUrl} alt="A bar placeholder" className="breweryImage img-fluid"/>
           </Col>
 
-          {/*brewery friend list*/}
+          {/*profile friend list*/}
           <Col md={6} className="breweryFriendCol bg-light">
             {/*Logged in, my own profile*/}
             {isCurrentUser === true &&
               <>
                 <h2>My Friends</h2>
-                <CheckedInFriends/>
-                <Row>
-                  <Col className="profile Info bg-light border-dark">
-                    <h2>Find A Friend</h2>
-                    <Form>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="search"/>
-                      </Form.Group>
-                      <Button variant="primary" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
-                  </Col>
-                </Row>
+                {console.log(friends)}
+
+                {friends.map((friends, index) => <FriendList friends = {friends} key={index}/>)}
+
+
+
               </>
             }
             {/*Logged in, friends with user*/}
-            {isFriend === true && isCurrentUser === false && (<p>i have friends</p>)}
+            {isFriend === true && isCurrentUser === false && (
+              <>
+                {friends.map((friends, index) =>
+                  <>
+                  <FriendList friends = {friends} key={friends.profileName}/>
+                  <AddAFriendForm friends = {friends} key={friends.profileId}/>
+                  </>
+                )}
+              </>
+            )}
 
             {/*Logged in, Not friends with user*/}
 
