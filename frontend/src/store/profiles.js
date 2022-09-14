@@ -13,7 +13,7 @@ const slice = createSlice({
 export const {setProfiles} = slice.actions
 
 export const addAllProfiles = (profiles) => async (dispatch) => {
-console.log(profiles)
+
     dispatch(setProfiles(profiles))
 
 }

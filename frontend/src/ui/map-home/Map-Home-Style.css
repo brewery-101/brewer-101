@@ -51,3 +51,11 @@ color: white;
     background-color: orange;
     margin-bottom: 5em;
 }
+.modalInfo{
+    margin-bottom: 0;
+}
+
+.breweryPopUp{
+    background-color: rgba(0, 0, 0, 0.6);
+
+}

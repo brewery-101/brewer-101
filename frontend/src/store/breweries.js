@@ -7,7 +7,7 @@ const slice = createSlice(
     initialState: [],
     reducers: {
       setInitialBreweries: (breweries, action) => {
-        console.log(`action is: ${JSON.stringify(action)}`)
+
         return action.payload
       },
       setIndividualBrewery: (breweries, action) => {

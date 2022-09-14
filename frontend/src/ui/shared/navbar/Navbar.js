@@ -38,7 +38,7 @@ export function BrewCrewNavBar () {
               <Nav className="me-auto justify-content-end">
                 <FriendSearchBar/>
                 <Nav.Link href="/">Map</Nav.Link>
-                <Nav.Link onClick={() => navigate(`/profile-page/${auth.profileId}`)}>UserName</Nav.Link>
+                <Nav.Link onClick={() => navigate(`/profile-page/${auth.profileId}`)}>{auth?.profileId ? auth?.profileName : "username" }</Nav.Link>
               </Nav>
             </Col>
           </Navbar>

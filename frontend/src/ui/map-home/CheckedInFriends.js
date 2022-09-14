@@ -23,11 +23,10 @@ const activeCheckins = useSelector(state => state.activeCheckins ?? [])
   // console.log(breweries.length && friends.length && activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId).map((activeCheckin, index) =>breweries.filter(friend => friend.profileId === activeCheckin.checkInProfileId)[0].breweryName))
 
   const activeCheckinsWithoutSelf = activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId)
-  console.log(activeCheckinsWithoutSelf)
-  console.log(friends)
+
   const activeCheckinsWithFriends = activeCheckinsWithoutSelf.filter(checkin=>friends.map(friend=>friend.profileId).includes(checkin.checkInProfileId))
 
-console.log(activeCheckinsWithFriends)
+
   return (
     <>
       {

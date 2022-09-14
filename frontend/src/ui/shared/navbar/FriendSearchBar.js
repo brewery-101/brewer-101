@@ -24,7 +24,7 @@ const navigate = useNavigate()
       .required('profile Name is required'),
   })
   const submitSearchFriend = (values, { resetForm, setStatus }) => {
-    console.log(values)
+
     httpConfig.get(`/apis/profile/profileName/${values.profileName}`)
       .then(reply => {
           let { message, type } = reply

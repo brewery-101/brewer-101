@@ -22,7 +22,7 @@ export function ProfilePage () {
   const isCurrentUser = profile && profile.profileId === currentUser?.profileId
   const friends = useSelector(state => state.friends ? state.friends : null)
   const isFriend = useSelector(state => {
-    console.log(state.friends)
+
     if (state.friends === null) {
       return false
     }

@@ -7,7 +7,7 @@ import { Formik } from 'formik'
 import { DisplayStatus } from '../DisplayStatus'
 import Button from 'react-bootstrap/Button'
 import { InputGroup } from 'react-bootstrap'
-import { FormDebugger } from '../../../utils/FormDebugger'
+
 
 export function CheckInForm () {
 
@@ -103,7 +103,6 @@ function CheckInFormContent (props) {
         </Form.Group>
       </Form>
       <DisplayStatus status={status}/>
-      <FormDebugger {...props}></FormDebugger>
     </>
   )
 }
