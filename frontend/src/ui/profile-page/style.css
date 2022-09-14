@@ -16,20 +16,20 @@
     background-image: linear-gradient(
             0deg,
             hsl(39deg 100% 50%) 0%,
-            hsl(39deg 100% 50%) 40%,
-            hsl(39deg 100% 50%) 52%,
-            hsl(39deg 100% 50%) 60%,
-            hsl(39deg 100% 50%) 64%,
-            hsl(39deg 100% 50%) 68%,
-            hsl(39deg 100% 50%) 70%,
-            hsl(39deg 100% 50%) 73%,
-            hsl(39deg 100% 50%) 75%,
-            hsl(39deg 100% 50%) 78%,
-            hsl(35deg 100% 71%) 82%,
-            hsl(35deg 100% 86%) 88%,
+            hsl(39deg 100% 50%) 8%,
+            hsl(39deg 100% 50%) 15%,
+            hsl(39deg 100% 50%) 22%,
+            hsl(39deg 100% 50%) 30%,
+            hsl(39deg 100% 50%) 37%,
+            hsl(39deg 100% 50%) 45%,
+            hsl(35deg 100% 71%) 53%,
+            hsl(35deg 100% 86%) 61%,
+            hsl(0deg 0% 100%) 70%,
+            hsl(300deg 100% 100%) 80%,
+            hsl(300deg 100% 100%) 90%,
             hsl(0deg 0% 100%) 100%
     );
-    text-blink: blue;
+
 }
 
 .friendComponent{

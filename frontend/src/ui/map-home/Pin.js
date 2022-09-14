@@ -4,8 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Map-Home-Style.css'
 
 export function Pin (props) {
+<<<<<<< HEAD
   const { breweries: { breweryLat: lat, breweryLng: lng, breweryName, breweryAddress, breweryWebsite, breweryState, breweryCity }, index } = props
 
+=======
+  const { breweries: { breweryLat: lat, breweryLng: lng, breweryName, breweryAddress, breweryWebsite}, index } = props
+  console.log(props)
+>>>>>>> 299137e1228b047d8deaa9eb876e6fe81ee0cb66
 
   const [showPopup, setShowPopup] = useState(false)
 
@@ -22,12 +27,18 @@ export function Pin (props) {
 
         {/*This controls what's in the popup*/}
         <div>
+<<<<<<< HEAD
           <h2 className="modalInfo">{breweryName}</h2>
           <p className="modalInfo">{breweryAddress}</p>
           <p className="modalInfo">{breweryCity}, {breweryState}</p>
           {(breweryWebsite !== null) &&
           <a href={breweryWebsite}>Visit Website</a>
         }
+=======
+          <h2 className="mapBreweryName">{breweryName}</h2>
+          <p className="mapBreweryAddress">{breweryAddress}</p>
+          {breweryWebsite !== null && (<a href={breweryWebsite}>Visit Website</a>)}
+>>>>>>> 299137e1228b047d8deaa9eb876e6fe81ee0cb66
         </div>
       </Popup>)}
     </>
