@@ -63,6 +63,7 @@ export async function getProfileByProfileIdController (request: Request, respons
  */
 export async function getProfileByProfileNameController (request: Request, response: Response): Promise<Response<Status>> {
   try {
+    console.log()
     const { profileName } = request.params
     const mySqlResult = await selectProfileByProfileName(profileName)
     const data = mySqlResult ?? null

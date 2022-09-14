@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { DisplayError } from '../../DisplayError'
 import { DisplayStatus } from '../../DisplayStatus'
 import { Formik } from 'formik'
+import { fetchInitialFriends } from '../../../../store/friends'
 
 export function SignInForm () {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ export function SignInForm () {
           resetForm()
           let jwtToken = jwtDecode(reply.headers['authorization'])
           dispatch(setAuth(jwtToken))
+          dispatch(fetchInitialFriends())
         }
         setStatus({ message, type })
       })

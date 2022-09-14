@@ -9,6 +9,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAuth } from '../../../store/auth'
 import { useNavigate } from 'react-router-dom'
+import { FriendSearchBar } from './FriendSearchBar'
 
 export function BrewCrewNavBar () {
   const navigate =useNavigate()
@@ -30,13 +31,13 @@ export function BrewCrewNavBar () {
               <SignInModal/>
               <Navbar.Brand href="/">ABQ BrewCrew</Navbar.Brand>
             </Col>
-            <Col md={{ span: 6, offset: 1}}>
+            <Col md={{ span: 4, offset: 1}}>
               <CheckInModal/>
             </Col>
-            <Col md={{ span: 2, offset: 1}} className="pe-4">
+            <Col md={{ span: 4, offset: 1}} className="pe-4">
               <Nav className="me-auto justify-content-end">
+                <FriendSearchBar/>
                 <Nav.Link href="/">Map</Nav.Link>
-                <Nav.Link href="#">Need something?</Nav.Link>
                 <Nav.Link onClick={() => navigate(`/profile-page/${auth.profileId}`)}>UserName</Nav.Link>
               </Nav>
             </Col>

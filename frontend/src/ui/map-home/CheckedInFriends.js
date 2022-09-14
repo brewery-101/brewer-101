@@ -31,40 +31,11 @@ console.log(activeCheckinsWithFriends)
   return (
     <>
       {
-        friends.length && activeCheckinsWithFriends.length && breweries.filter(brewery => activeCheckinsWithFriends.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithFriends.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).map(checkin=>checkin.checkInProfileId).includes(friend.profileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
+        (friends.length && activeCheckinsWithFriends.length && breweries.filter(brewery => activeCheckinsWithFriends.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithFriends.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).map(checkin=>checkin.checkInProfileId).includes(friend.profileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
+        ) || ""
+
       }
 
     </>
-
-  // {
-  //   friends.length && activeCheckinsWithoutSelf.length && breweries.filter (brewery => activeCheckinsWithoutSelf.map(checkin => checkin.checkInBreweryId).includes(brewery.breweryId)).map(brewery =>  <BreweryThatHasFriendsAtIt brewery={brewery} key={brewery.breweryId} friendsAtThisBrewery={friends.filter(friend => activeCheckinsWithoutSelf.filter(checkin => checkin.checkInBreweryId === brewery.breweryId).filter(checkin => checkin.checkInProfileId === friend.friendRequestorProfileId || checkin.checkInProfileId === friend.friendRequesteeProfileId))} allCheckIns={activeCheckinsWithoutSelf}/>)
-  // }
-
-// <div>
-//   {breweries.length && friends.length && activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId).map((activeCheckin, index) =>
-//
-//   <Container>
-//     <h2 className="my-2">{friends.filter(friend => friend.profileId=== activeCheckin.checkInBreweryId)[0].breweryName}</h2>
-//     {breweries.length && friends.length && activeCheckins.filter(checkin=>checkin.checkInProfileId !== auth.profileId).map((activeCheckin, index) =>
-//
-//     <Row className="peopleAtBrewery my-3">
-//       <Col sm={3} className="personIcon my-auto">
-//         <img src={profilePic} alt="sample mingo" className="smallProfileIcon "/>
-//       </Col>
-//       <Col>
-//         <Row className="bg-light mb-1 me-2 fs-6 border border-dark">
-//           <p className="personName my-0">{friends.filter(friend => friend.profileId=== activeCheckin.checkInProfileId)[0].profileName}</p>
-//         </Row>
-//         <Row className="whatChaDrinkin bg-light me-2 border border-dark">
-//           <p className="my-0">Drinkin: the fruitiest drink on the menu</p>
-//         </Row>
-//       </Col>
-//     </Row>
-//     )}
-//   </Container>
-//
-//   )}
-//
-// </div>
   );
 }

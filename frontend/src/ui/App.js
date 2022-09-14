@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
+  faSearch,
   faDove,
   faEnvelope,
   faKey,
@@ -20,8 +21,9 @@ import {
   faSignOutAlt,
   faStroopwafel, faUser, faBeerMugEmpty
 } from '@fortawesome/free-solid-svg-icons'
+import { ProfileSearch } from './profileSearch/ProfileSearch'
 
-library.add(faStroopwafel, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSignOutAlt, faUser, faBeerMugEmpty);
+library.add(faSearch, faEnvelope, faKey, faDove, faPhone, faPencilAlt, faSignOutAlt, faUser, faBeerMugEmpty);
 
 export const App = ({store}) => (
   <>
@@ -29,10 +31,11 @@ export const App = ({store}) => (
     <BrowserRouter>
       <BrewCrewNavBar/>
       <Routes>
+        <Route path='/profileSearch' element={<ProfileSearch/>} />
         <Route path='/' element={<Home />} />
-        <Route path='*' element={<FourOhFour />} />
         <Route exact path='/profile-page/:profileId' element={<ProfilePage/>} profileId=":profileId" />
         <Route path='/Brewery/' element={<BreweryPage/>} />
+        <Route path='*' element={<FourOhFour />} />
       </Routes>
     </BrowserRouter>
     </Provider>

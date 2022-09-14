@@ -86,11 +86,12 @@ export async function selectProfileByProfileEmail(profileEmail: string): Promise
 }
 
 export async function selectProfileByProfileName(profileName: string): Promise<Profile | null> {
+  const parsedProfileName = `%${profileName}%`
   const result = await sql <Profile[]>`
   SELECT "profileId", "profileEmail", "profileName" 
   FROM "profile" 
-  WHERE "profileName" = ${profileName}`
-  return result?.length === 1 ? result[0] : null
+  WHERE "profileName" LIKE ${parsedProfileName}`
+  return result
 }
 
 export async function selectAllProfilesByFriends(profileId: string): Promise<Profile[]> {

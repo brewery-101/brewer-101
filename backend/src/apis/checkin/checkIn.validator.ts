@@ -1,18 +1,10 @@
 import { Schema } from 'express-validator'
 
 export const checkInValidator: Schema = {
-  checkInProfileId: {
+  checkInBreweryId: {
     isUUID: {
-      errorMessage: 'please provide a valid CheckInId'
+      errorMessage: 'please provide a valid Brewery Id'
     }
-  },
-  checkInDateTime: {
-    isLength: {
-      errorMessage: 'name cannot be longer than 32 characters',
-      options: { min: 1, max: 32 }
-    },
-    trim: true,
-    escape: true
   },
   // checkInEndTime: {
   //   isDate: true,
@@ -23,10 +15,6 @@ export const checkInValidator: Schema = {
   //     }
   //   },
   // },
-  checkInIsActive: {
-   isBoolean : {errorMessage: "please provide a valid boolean"}
-
-  },
   checkinWhatChaDrinkin: {
     trim: true,
     escape: true,

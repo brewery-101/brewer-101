@@ -7,7 +7,7 @@ import { Formik } from 'formik'
 import { DisplayStatus } from '../DisplayStatus'
 import Button from 'react-bootstrap/Button'
 import { InputGroup } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FormDebugger } from '../../../utils/FormDebugger'
 
 export function CheckInForm () {
 
@@ -15,8 +15,7 @@ export function CheckInForm () {
 
   const validator = Yup.object().shape({
     checkInBreweryId: Yup.string()
-      .length(16, 'Not a valid Id')
-      .required('Needs an Id'),
+      .required('must select a brewery'),
     checkInWhatChaDrinkin: Yup.string()
   })
   const checkIn = {
@@ -25,7 +24,7 @@ export function CheckInForm () {
   }
 
   const submitCheckIn = (values, { resetForm, setStatus }) => {
-    httpConfig.post('/apis/checkIn/', values)
+    httpConfig.post('/apis/check-In/', values)
       .then(reply => {
           let { message, type } = reply
 
@@ -66,13 +65,17 @@ function CheckInFormContent (props) {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="checkInBreweryId">
-          <Form.Label htmlFor="Select">Brewery</Form.Label>
-          <Form.Select id="Select">
+          <Form.Label>Brewery</Form.Label>
+          <Form.Select
+            name="checkInBreweryId"
+            value={values.checkInBreweryId}
+              onChange={handleChange}
+              onBlur={handleBlur}>
             {breweries.map((brewery) =>
               <option
-                name="checkInBreweryId"
-                value={values.checkInBreweryId}
-                key={brewery.breweryId}>{brewery.breweryName}
+                value={brewery.breweryId}
+                key={brewery.breweryId}>
+                {brewery.breweryName}
               </option>
             )}
 
@@ -100,6 +103,7 @@ function CheckInFormContent (props) {
         </Form.Group>
       </Form>
       <DisplayStatus status={status}/>
+      <FormDebugger {...props}></FormDebugger>
     </>
   )
 }

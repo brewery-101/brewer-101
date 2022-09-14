@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { SignInForm } from './SignInForm';
+import { fetchInitialFriends } from '../../../../store/friends'
+import { useDispatch } from 'react-redux'
 
 export function SignInModal() {
   const [show, setShow] = useState(false);
