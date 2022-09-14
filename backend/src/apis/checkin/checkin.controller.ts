@@ -25,11 +25,7 @@ import { Profile } from '../../utils/models/Profile'
 export async function postCheckInController (request: Request, response: Response): Promise<Response<Status>> {
   try {
     const {
-      checkInProfileId,
       checkInBreweryId,
-      checkInDateTime,
-      checkInEndTime,
-      checkInIsActive,
       checkInWhatChaDrinkin
     } = request.body
 
@@ -39,11 +35,11 @@ export async function postCheckInController (request: Request, response: Respons
 
     const checkIn: CheckIn = {
       checkInId: null,
-      checkInProfileId,
+      checkInProfileId: profileId,
       checkInBreweryId,
-      checkInDateTime,
-      checkInEndTime,
-      checkInIsActive,
+      checkInDateTime: new Date().toLocaleString('en-US', { timeZone: 'America/Denver' }),
+      checkInEndTime: new Date().toLocaleString('en-US', { timeZone: 'America/Denver' }),
+      checkInIsActive: true,
       checkInWhatChaDrinkin
     }
 

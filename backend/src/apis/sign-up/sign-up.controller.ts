@@ -14,7 +14,7 @@ export async function signUpController(request: Request, response: Response): Pr
     const {profileEmail, profilePassword, profileName} = request.body
     const profileHash = await setHash(profilePassword)
     const profileActivationToken = setActivationToken()
-    const profileAvatarUrl = null
+    const profileAvatarUrl = "https://res.cloudinary.com/abq-brew-crew/image/upload/v1663115215/Portrait_placeholder_uyflax.png"
     console.log(request.originalUrl)
     const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
     const message = `<h2>Welcome to brewer 101</h2>

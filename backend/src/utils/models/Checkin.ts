@@ -6,7 +6,7 @@ export interface CheckIn {
   checkInBreweryId: string,
   checkInDateTime: string,
   checkInEndTime: string,
-  checkInIsActive: string,
+  checkInIsActive: boolean,
   checkInWhatChaDrinkin: string
 }
 

@@ -1,6 +1,8 @@
 import { Request, Response } from 'express'
 import { uploadToCloudinary } from '../../utils/cloudinary.utils'
 
+
+
 export async function imageUploadController (request: Request, response: Response): Promise<Response> {
   try {
     // uncomment if in production
@@ -11,6 +13,7 @@ export async function imageUploadController (request: Request, response: Respons
     const message: string = await uploadToCloudinary(request.file)
     return response.json({ status: 200, data: null, message: message })
   } catch (error: any) {
+    console.log(JSON.stringify(error))
     return response.json({ status: 400, message: error.message, data: null })
   }
 }
