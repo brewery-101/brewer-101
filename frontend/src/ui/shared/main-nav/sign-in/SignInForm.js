@@ -107,9 +107,9 @@ function SignInFormContent (props) {
             <FormControl
               className="form-control"
               name="profilePassword"
-              type="text"
+              type="password"
               value={values.profilePassword}
-              placeholder="Password here"
+              placeholder="P@ssword1"
               onChange={handleChange}
               onBlur={handleBlur}
             />

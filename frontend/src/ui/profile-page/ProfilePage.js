@@ -58,7 +58,9 @@ export function ProfilePage () {
           {isCurrentUser === true &&
             <>
             <Col md={6} className="profileFriendCol bg-light">
-            <h2>My Friends</h2>
+              <h2>My Friends</h2>
+
+
 
 
             {friends.map((friends, index) =>

@@ -12,10 +12,28 @@
 ]'
     margin: .5rem;
 }
-.profileFriendCol{
-
+.profileFriendCol {
+    background-image: linear-gradient(
+            0deg,
+            hsl(39deg 100% 50%) 0%,
+            hsl(39deg 100% 50%) 40%,
+            hsl(39deg 100% 50%) 52%,
+            hsl(39deg 100% 50%) 60%,
+            hsl(39deg 100% 50%) 64%,
+            hsl(39deg 100% 50%) 68%,
+            hsl(39deg 100% 50%) 70%,
+            hsl(39deg 100% 50%) 73%,
+            hsl(39deg 100% 50%) 75%,
+            hsl(39deg 100% 50%) 78%,
+            hsl(35deg 100% 71%) 82%,
+            hsl(35deg 100% 86%) 88%,
+            hsl(0deg 0% 100%) 100%
+    );
+    text-blink: blue;
 }
 
 .friendComponent{
 
 }
+
+
