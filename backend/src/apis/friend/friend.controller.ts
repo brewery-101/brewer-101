@@ -65,17 +65,18 @@ export async function putFriendController ( request: Request, response: Response
 export async function getFriendByFriendRequesteeProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
   try {
     const { friendRequesteeProfileId } = request.params
+    const profile = request.session.profile as Profile
+    const profileId = profile.profileId as string
+    console.log(profileId)
+    console.log(friendRequesteeProfileId)
 
-    // const profile = request.session.profile as Profile
-    // const profileIdFromSession = profile.profileId as string
-    //
-    // if (friendRequesteeProfileId !== profileIdFromSession) {
-    //   return response.json({ status: 400, data: null, message: 'You are not allowed to perform this task' })}
-
-    const data = await selectFriendByFriendRequesteeProfileId(friendRequesteeProfileId)
-    const status: Status = { status: 200, message: null, data }
-    return response.json(status)
-
+    if (friendRequesteeProfileId === profileId){
+      const data = await selectFriendByFriendRequesteeProfileId(profileId)
+      console.log("it got here")
+      const status: Status = { status: 200, message: null, data }
+      return response.json(status)
+    }
+    return response.json({ status: 400, data: null, message: 'You are not allowed to perform this task' })
   }catch (error) {
     console.error(error)
     return response.json({status: 500, message: '', data: []
