@@ -1,7 +1,5 @@
 import React from 'react'
 import { BreweryMap } from './BreweryMap'
-// import Button from 'react-bootstrap/Button';
-// import Offcanvas from 'react-bootstrap/Offcanvas';
 import "./Map-Home-Style.css"
 import { Container, Row, Col } from 'react-bootstrap'
 import { CheckedInFriends } from './CheckedInFriends'
@@ -15,7 +13,10 @@ export function Home () {
     <>
       <Container fluid>
         <Row>
-          <Col md={4} className="border border-1 border-dark"><CheckedInFriends/></Col>
+          <Col md={4} className="checkedInFriendsBar border border-1 border-light">
+            <h1>Who's Ready to Party!?</h1>
+            <CheckedInFriends/>
+          </Col>
           <Col md={8} className="px-0"><BreweryMap/></Col>
         </Row>
       </Container>

@@ -35,3 +35,19 @@ height: auto;
     cursor: pointer;
 
 }
+
+.checkedInFriendsBar h1{
+color: white;
+    
+}
+
+.profileHeader{
+    color: white;
+    background-color: orange;
+}
+
+.profileMyFriends{
+    color: white;
+    background-color: orange;
+    margin-bottom: 5em;
+}
