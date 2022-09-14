@@ -27,8 +27,11 @@ export async function selectFriendByPrimaryKey (friend: Friend): Promise<Friend|
 }
 
 export async function selectFriendByFriendRequesteeProfileId (friendRequesteeProfileId: string): Promise<Friend|null> {
-  const result = await sql <Friend[]>`SELECT "friendRequesteeProfileId", "friendRequestorProfileId", "friendRequestApproved" FROM Friend WHERE "friendRequesteeProfileId" = ${friendRequesteeProfileId}`
-  return result.length === 1 ? result[0]:null
+  const result = await sql <Friend[]>`
+  SELECT "friendRequesteeProfileId", "friendRequestorProfileId", "friendRequestApproved" 
+  FROM Friend 
+  WHERE "friendRequesteeProfileId" = ${friendRequesteeProfileId} AND "friendRequestApproved" IS NULL`
+  return result
 }
 
 export async function selectFriendByFriendRequestorProfileId (friendRequestorProfileId: string): Promise<Friend|null> {
