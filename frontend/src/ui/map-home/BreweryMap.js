@@ -4,9 +4,10 @@ import { Pin } from './Pin'
 import "./Map-Home-Style.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchInitialBreweries } from '../../store/breweries'
+import  mapboxgl  from "mapbox-gl"
 
-
-
+//eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 export function BreweryMap () {
 
